@@ -35,7 +35,7 @@ SELECT customer_id, SUM(total_amount) AS total_spent
 FROM orders
 GROUP BY customer_id;
 
--- will return set the shows total ammount spent on each order DATE.
+-- will return set the shows total amount spent on each order DATE.
 SELECT customer_id, order_date, SUM(total_amount) AS total_spent
 FROM orders
 GROUP BY customer_id, order_date;
@@ -117,12 +117,12 @@ WHERE order_date > '2023-02-01'
 GROUP BY customer_id;
 
 -- Scalar Subqueries return a single value (a single row with a single column)typically within SELECT lists or WHERE clauses.
--- shows the total ammount that is larger than the given min amount of 250.
+-- shows the total amount that is larger than the given min amount of 250.
 SELECT id, order_date, total_amount
 FROM orders
 WHERE total_amount >= (SELECT MIN(250) FROM orders);
 
--- Column Subqueries, Shows select amount of cloumns I wanted to show. query will show the id order date and customer id that is from specified date.
+-- Column Subqueries, Shows select amount of columns I wanted to show. query will show the id order date and customer id that is from specified date.
 SELECT id, order_date, customer_id
 FROM orders
 WHERE customer_id IN (SELECT id FROM customers WHERE order_date = '2023-04-01');
